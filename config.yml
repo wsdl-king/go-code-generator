@@ -1,0 +1,21 @@
+development:
+  database:
+    host: 127.0.0.1
+    user: root
+    pwd: 123456
+    port: 3306
+    #数据库名称
+    db_name: test
+    #数据库表名称
+    table_name: customer
+    #DriverName
+    driver_name: mysql
+    #数组表现形式
+  users:
+    - name: calvin
+      password: yukon
+    - name: hobbes
+      password: tuna
+production:
+  database:
+    host: 192.168.1.1

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"go-code-generator/conf"
 	"go-code-generator/generate"
 )
 
@@ -8,7 +9,8 @@ func main() {
 	// 生成 go-gin 启动类
 	//generate.BootStrap()
 	// 读取数据库,生成route_api
-	generate.GenerateRoute("test", "customer")
+	env := conf.GetEnv()
+	generate.GenerateRoute(env.DBName, env.TableName)
 	//db.InitDB()
 	//maps := make(map[string]interface{})
 	//maps["name"] = "保定"
