@@ -1,3 +1,4 @@
+#开发环境
 development:
   database:
     host: 127.0.0.1
@@ -10,12 +11,3 @@ development:
     table_name: customer
     #DriverName
     driver_name: mysql
-    #数组表现形式
-  users:
-    - name: calvin
-      password: yukon
-    - name: hobbes
-      password: tuna
-production:
-  database:
-    host: 192.168.1.1

@@ -9,8 +9,8 @@ import (
 
 //数据库配置--只连接一次我就不拿到配置文件了
 const (
-	default_db_max_open = 32
-	default_db_max_idle = 2
+	defaultDbMaxOpen = 32
+	defaultDbMaxIdle = 2
 )
 
 var DB *sqlx.DB
@@ -23,8 +23,8 @@ func InitDB() {
 	//构建连接："用户名:密码@tcp(IP:端口)/数据库?charset=utf8"
 	path := strings.Join([]string{config.DbUser, ":", config.DbPwd, "@tcp(", config.DbHost, ":", config.DbPort, ")/", config.DBName, "?charset=utf8"}, "")
 	db, _ := sqlx.Open(config.DriverName, path)
-	db.SetMaxOpenConns(default_db_max_open)
-	db.SetMaxIdleConns(default_db_max_idle)
+	db.SetMaxOpenConns(defaultDbMaxOpen)
+	db.SetMaxIdleConns(defaultDbMaxIdle)
 	DB = db
 }
 func GetDB() *sqlx.DB {
