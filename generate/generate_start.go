@@ -15,9 +15,18 @@ func GenerateRoute(dbName, tableName string) {
 //读取数据库名/表名
 func generateFromDataBase(db *sqlx.DB, dbName, tableName string) {
 	AllTable := &[]ALLTABLE{}
-	e := db.Select(AllTable,
-		"SELECT TABLE_NAME,TABLE_COMMENT from information_schema.`TABLES` where "+
-			"TABLE_SCHEMA = '"+dbName+"'"+" and TABLE_NAME='"+tableName+"' ")
+	if dbName == "" && tableName == "" {
+		return
+	}
+	var sql string
+	if tableName == "" {
+		sql = "SELECT TABLE_NAME,TABLE_COMMENT from information_schema.`TABLES` where " +
+			"TABLE_SCHEMA = '" + dbName + "'"
+	} else {
+		sql = "SELECT TABLE_NAME,TABLE_COMMENT from information_schema.`TABLES` where " +
+			"TABLE_SCHEMA = '" + dbName + "'" + " and TABLE_NAME='" + tableName + "' "
+	}
+	e := db.Select(AllTable, sql)
 	if e != nil {
 		fmt.Println(e)
 		return

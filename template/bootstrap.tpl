@@ -23,7 +23,7 @@ import (
     {{ else }}
         //根据主键获得{{.TABLE_NAME}}
     {{ end }}
-    engine.GET("/get{{.TABLE_NAME | FirstCharUpper }}/:customerId", routes.Get{{.TABLE_NAME | FirstCharUpper }}ByPrimaryKey)
+    engine.GET("/get{{.TABLE_NAME | FirstCharUpper }}/:key", routes.Get{{.TABLE_NAME | FirstCharUpper }}ByPrimaryKey)
     {{if.TABLE_COMMENT}}
         //获取分页{{.TABLE_COMMENT}}
     {{else}}

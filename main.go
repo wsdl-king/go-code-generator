@@ -10,7 +10,7 @@ func main() {
 	//generate.BootStrap()
 	// 读取数据库,生成route_api
 	env := conf.GetEnv()
-	generate.GenerateRoute(env.DBName, env.TableName)
+	generate.GenerateRoute(env.DBName, "")
 	//db.InitDB()
 	//maps := make(map[string]interface{})
 	//maps["name"] = "保定"
