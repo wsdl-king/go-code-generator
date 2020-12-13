@@ -4,7 +4,7 @@ go写的自动生成代码工具,一键生成go-gin+gorm的增删改查,只需�
 
 ## 安装
 ```
-$ go get https://github.com/wsdl-king/go-code-generator
+$ go get github.com/wsdl-king/go-code-generator
 ```
 ## 如何运行
 
